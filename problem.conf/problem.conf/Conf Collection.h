@@ -2,10 +2,21 @@
 #include "stdInc.h"
 #include "resource.h"
 
+static const char* builtin_checker[] =
+{
+	nullptr,
+	"fcmp",
+	"ncmp",
+	"uncmp",
+	"rcmp4",
+	"rcmp6",
+	"rcmp9"
+};
 struct ConfCollection
 {
 	static std::string strFileName;
 	static std::string strRaw;
+
 
 	struct DataDomain
 	{
@@ -59,7 +70,7 @@ struct ConfCollection
 	}
 	void analyse()
 	{
-
+		//TODO: ·ÖÎö
 	}
 	static inline void AddUINT(std::string& str, UINT x)
 	{
@@ -70,8 +81,9 @@ struct ConfCollection
 	void save()
 	{
 		std::string out;
-#define saveString(x) out += #x " "; out += data.x; out += "\n";
-#define saveUINT(x) out += #x " "; AddUINT(out, data.x); out += "\n"; 
+		out += "use_builtin_judger on\r\n";
+#define saveString(x) out += #x " "; out += data.x; out += "\r\n";
+#define saveUINT(x) out += #x " "; AddUINT(out, data.x); out += "\r\n"; 
 		saveString(input_pre);
 		saveString(input_suf);
 		saveString(output_pre);
@@ -86,5 +98,17 @@ struct ConfCollection
 		saveUINT(n_sample_tests);
 #undef saveString
 #undef saveUINT
+
+		if (data.use_builtin_checker)
+		{
+			out += "use_builtin_checker ";
+			out += builtin_checker[data.use_builtin_checker];
+		}
+
+		HANDLE hFile = CreateFile(strFileName.c_str(), GENERIC_WRITE, FILE_SHARE_READ,
+			NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+		DWORD dwWritten;
+		WriteFile(hFile, out.c_str(), out.size(), &dwWritten, NULL);
+		CloseHandle(hFile);
 	}
 };

@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include <Windows.h>
 #include <windowsx.h>

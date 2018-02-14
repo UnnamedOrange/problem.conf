@@ -87,19 +87,22 @@ bool SaveConf(HWND hWnd)
 
 	//limit
 	GetComboBoxUINT(IDC_COMBO_TL, data.time_limit);
-	GetComboBoxUINT(IDC_COMBO_TL, data.memory_limit);
-	GetComboBoxUINT(IDC_COMBO_TL, data.output_limit);
+	GetComboBoxUINT(IDC_COMBO_ML, data.memory_limit);
+	GetComboBoxUINT(IDC_COMBO_OUTL, data.output_limit);
 
 	//comp
 	data.use_builtin_checker = ComboBox_GetCurSel(GetDlgItem(hWnd, IDC_COMBO_COMP));
 
 	//data
-	GetComboBoxUINT(IDC_COMBO_TL, data.n_tests);
-	GetComboBoxUINT(IDC_COMBO_TL, data.n_ex_tests);
-	GetComboBoxUINT(IDC_COMBO_TL, data.n_sample_tests);
+	GetComboBoxUINT(IDC_COMBO_CASE, data.n_tests);
+	GetComboBoxUINT(IDC_COMBO_EXCASE, data.n_ex_tests);
+	GetComboBoxUINT(IDC_COMBO_SAMPLECASE, data.n_sample_tests);
 #undef GetEditText
 #undef GetComboBoxText
 #undef GetComboBoxUINT
+
+	ConfCollection().save();
+	return true;
 }
 BOOL OperateWindow::OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 {
@@ -129,7 +132,19 @@ VOID OperateWindow::OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 			MessageBox(hwnd, "输入了非法数据，保存失败", "错误", MB_ICONERROR);
 			break;
 		}
+		std::cout << "已保存。" << std::endl;
 		EndDialog(hwnd, TRUE);
+		break;
+	}
+	case IDC_EDIT_NAME1:
+	{
+		if (codeNotify == EN_CHANGE)
+		{
+			char buffer[MAX_PATH];
+			Edit_GetText(hwndCtl, buffer, MAX_PATH);
+			Edit_SetText(GetDlgItem(hwnd, IDC_EDIT_NAME2), buffer);
+			Edit_SetText(GetDlgItem(hwnd, IDC_EDIT_NAME4), buffer);
+		}
 		break;
 	}
 	default:

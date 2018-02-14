@@ -38,12 +38,54 @@ int IsPlemCfgValid()
 	ConfCollection().load(b);
 	return true;
 }
+int IsFolderValid()
+{
+	//TODO: 文件夹模式
+	return false;
+}
+int IsCommandValid()
+{
+	static std::map<std::string, int> map;
+	enum
+	{
+		EXIT = -1,
+		HELP,
+		ABOUT
+	};
+	if (!map.size())
+	{
+		struct InitList
+		{
+			int id;
+			const char* str;
+		};
+		const InitList list[] = 
+		{
+		{ EXIT, "EXIT" },
+		{ HELP, "HELP" },
+		{ ABOUT, "ABOUT" },
+		};
+		for (int i = 0; i < sizeof(list) / sizeof(InitList); i++)
+			map[list[i].str] = list[i].id;
+	}
+
+	_strupr_s(buffer);
+	if (!map.count(buffer))
+		return false;
+
+	switch (map[buffer])
+	{
+	case EXIT:
+		return CODE_EXIT;
+	}
+	return true;
+}
 
 void PrintTitle()
 {
 	std::cout << "problem.conf" << std::endl;
 	std::cout << "Orange Software" << std::endl;
-	std::cout << "键入 Help 以获取帮助" << std::endl;
+	std::cout << "键入 HELP 以查看帮助" << std::endl;
 }
 int _tmain()
 {
@@ -60,8 +102,18 @@ int _tmain()
 			ret = CODE_CONTINUE;
 			continue;
 		}
+		if (ret = IsFolderValid())
+		{
+			OperateWindow::NewInstance();
+			ret = CODE_CONTINUE;
+			continue;
+		}
 
 		//TODO: 解析命令
+		if (ret = IsCommandValid())
+			continue;
+
+		std::cout << "无效的路径或命令。键入 HELP 以查看帮助。" << std::endl;
 	}
 	return 0;
 }

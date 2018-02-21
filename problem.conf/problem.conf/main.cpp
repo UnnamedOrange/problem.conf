@@ -50,7 +50,8 @@ int IsCommandValid()
 	{
 		EXIT = -1,
 		HELP,
-		ABOUT
+		ABOUT,
+		NEW
 	};
 	if (!map.size())
 	{
@@ -64,6 +65,7 @@ int IsCommandValid()
 		{ EXIT, "EXIT" },
 		{ HELP, "HELP" },
 		{ ABOUT, "ABOUT" },
+		{ NEW, "NEW" }
 		};
 		for (int i = 0; i < sizeof(list) / sizeof(InitList); i++)
 			map[list[i].str] = list[i].id;
@@ -77,6 +79,11 @@ int IsCommandValid()
 	{
 	case EXIT:
 		return CODE_EXIT;
+	case NEW:
+	{
+		
+		break;
+	}
 	}
 	return true;
 }

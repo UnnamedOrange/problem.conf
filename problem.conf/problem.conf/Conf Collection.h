@@ -17,7 +17,6 @@ struct ConfCollection
 	static std::string strFileName;
 	static std::string strRaw;
 
-
 	struct DataDomain
 	{
 		std::string name;
@@ -33,12 +32,12 @@ struct ConfCollection
 		enum COMPARE
 		{
 			spj,
-			fcmp, //全文比较（忽略文末回车，不忽略行末空格）
-			ncmp, //比较单行有序64位整数序列
-			uncmp, //比较单行无序64位整数序列，即排序后比较
-			rcmp4, //比较双精度浮点数序列，最大绝对或相对误差为 1.0e-4
-			rcmp6, //比较双精度浮点数序列，最大绝对或相对误差为 1.0e-6
-			rcmp9, //比较双精度浮点数序列，最大绝对或相对误差为 1.0e-9
+			fcmp, // 全文比较（忽略文末回车，不忽略行末空格）
+			ncmp, // 比较单行有序64位整数序列
+			uncmp, // 比较单行无序64位整数序列，即排序后比较
+			rcmp4, // 比较双精度浮点数序列，最大绝对或相对误差为 1.0e-4
+			rcmp6, // 比较双精度浮点数序列，最大绝对或相对误差为 1.0e-6
+			rcmp9, // 比较双精度浮点数序列，最大绝对或相对误差为 1.0e-9
 		};
 		UINT use_builtin_checker;
 
@@ -53,11 +52,15 @@ struct ConfCollection
 		strFileName.clear();
 		strRaw.clear();
 	}
+	void create(const char* lpcFileName)
+	{
+		strFileName = lpcFileName;
+	}
 	void load(const char* lpcFileName)
 	{
 		strFileName = lpcFileName;
 
-		//读入文件
+		// 读入文件
 		HANDLE hFile = CreateFile(strFileName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL,
 			OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 		DWORD dwSize = GetFileSize(hFile, NULL);
@@ -70,7 +73,8 @@ struct ConfCollection
 	}
 	void analyse()
 	{
-		//TODO: 分析
+		// TODO: 分析
+
 	}
 	static inline void AddUINT(std::string& str, UINT x)
 	{

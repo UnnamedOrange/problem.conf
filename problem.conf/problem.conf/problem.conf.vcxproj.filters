@@ -43,15 +43,15 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Conf Collection.cpp">
-      <Filter>源文件\Window</Filter>
-    </ClCompile>
     <ClCompile Include="Operate Window.cpp">
       <Filter>源文件\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Conf Collection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="..\..\..\..\..\OneDrive\Projects\Component.manifest">
+    <Manifest Include="C:\Users\lyche\OneDrive\Projects\Component.manifest">
       <Filter>资源文件</Filter>
     </Manifest>
   </ItemGroup>

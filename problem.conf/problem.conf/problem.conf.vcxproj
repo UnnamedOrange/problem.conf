@@ -166,7 +166,7 @@
     <ClCompile Include="Operate Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="..\..\..\..\..\OneDrive\Projects\Component.manifest" />
+    <Manifest Include="C:\Users\lyche\OneDrive\Projects\Component.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

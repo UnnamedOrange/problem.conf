@@ -12,5 +12,7 @@
 #include <windowsx.h>
 #include <tchar.h>
 
+#include <shlobj.h>
+
 extern "C" const IMAGE_DOS_HEADER __ImageBase; //&__ImageBase
 #define HINST (HINSTANCE)(&__ImageBase)

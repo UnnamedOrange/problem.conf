@@ -4,6 +4,20 @@
 
 #include "Conf Collection.h"
 
+BOOL SetFocusEx(HWND hwnd)
+{
+	HWND hwndLast;
+	DWORD dwThreadId;
+	SetForegroundWindow(hwnd);
+	dwThreadId = GetWindowThreadProcessId(hwnd, 0);
+	AttachThreadInput(GetCurrentThreadId(), dwThreadId, TRUE);
+	hwndLast = SetFocus(hwnd);
+	AttachThreadInput(GetCurrentThreadId(), dwThreadId, FALSE);
+	if (hwndLast == hwnd)
+		return FALSE;
+	return TRUE;
+}
+
 //message
 INT_PTR CALLBACK OperateWindow::DlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -108,12 +122,14 @@ BOOL OperateWindow::OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 {
 	hWnd = hwnd;
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
+	SetFocusEx(hwnd);
 	InitCombo(hwnd);
 	return TRUE;
 }
 VOID OperateWindow::OnDestroy(HWND hwnd)
 {
 	ShowWindow(GetConsoleWindow(), SW_SHOW);
+	SetFocusEx(GetConsoleWindow());
 }
 
 VOID OperateWindow::OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)

@@ -1,5 +1,5 @@
 #pragma once
-#include "stdInc.h"
+#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
 #include "resource.h"
 
 struct OperateWindow

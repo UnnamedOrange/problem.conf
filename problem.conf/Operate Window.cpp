@@ -1,7 +1,8 @@
-#include "stdInc.h"
+#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
 #include "resource.h"
 #include "Operate Window.h"
 
+#include "main.h"
 #include "Conf Collection.h"
 
 BOOL SetFocusEx(HWND hwnd)

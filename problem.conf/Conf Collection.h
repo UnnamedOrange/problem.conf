@@ -1,5 +1,5 @@
 #pragma once
-#include "stdInc.h"
+#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
 #include "resource.h"
 
 static const char* builtin_checker[] =
@@ -61,7 +61,7 @@ struct ConfCollection
 		strFileName = lpcFileName;
 
 		// ¶ÁÈëÎÄ¼þ
-		HANDLE hFile = CreateFile(strFileName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL,
+		HANDLE hFile = CreateFileA(strFileName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL,
 			OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 		DWORD dwSize = GetFileSize(hFile, NULL);
 		strRaw.resize(dwSize);
@@ -109,7 +109,7 @@ struct ConfCollection
 			out += builtin_checker[data.use_builtin_checker];
 		}
 
-		HANDLE hFile = CreateFile(strFileName.c_str(), GENERIC_WRITE, FILE_SHARE_READ,
+		HANDLE hFile = CreateFileA(strFileName.c_str(), GENERIC_WRITE, FILE_SHARE_READ,
 			NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 		DWORD dwWritten;
 		WriteFile(hFile, out.c_str(), out.size(), &dwWritten, NULL);

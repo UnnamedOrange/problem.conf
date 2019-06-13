@@ -7,52 +7,47 @@
     </Filter>
     <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\Window">
-      <UniqueIdentifier>{cc700226-59f6-44e0-a410-28c97e4c7ae0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\Window">
-      <UniqueIdentifier>{097711dc-3e98-442a-ab68-8daa7dc76807}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
+    <ClCompile Include="Command.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Conf Collection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Operate Window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="stdInc.h">
+    <ClInclude Include="Command.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Conf Collection.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Operate Window.h">
-      <Filter>头文件\Window</Filter>
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="problem.conf.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Operate Window.cpp">
-      <Filter>源文件\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="Conf Collection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Manifest Include="C:\Users\lyche\OneDrive\Projects\Component.manifest">
-      <Filter>资源文件</Filter>
-    </Manifest>
   </ItemGroup>
 </Project>

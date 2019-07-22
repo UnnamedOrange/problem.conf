@@ -1,5 +1,5 @@
 #pragma once
-#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
+#include "pch.h"
 
 class Command
 {

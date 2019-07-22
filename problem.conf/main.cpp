@@ -1,4 +1,4 @@
-#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
+#include "pch.h"
 #include "resource.h"
 #include "main.h"
 

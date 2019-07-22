@@ -1,5 +1,5 @@
 #pragma once
-#include "../../TKernel/TKernel/TKernel/kits/TKernel.h"
+#include "pch.h"
 #include "resource.h"
 
 static const char* builtin_checker[] =

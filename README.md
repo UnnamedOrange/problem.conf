@@ -12,6 +12,10 @@ No advantage, except hard to use.
 
 There is a help menu in it!
 
-## Technique
+## Credits
 
-It uses [TKernel](https://github.com/UnnamedOrange/TKernel), which you need to attach to the source code, to make the source code work right.
+### [TKernal](https://github.com/UnnamedOrange/TKernel)
+
+Copyright (c) 2018 Orange Software
+
+MIT License http://opensource.org/licenses/MIT

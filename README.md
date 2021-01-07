@@ -1,3 +1,5 @@
+This repository has been archived. Say goodbye to my old code!
+
 # *problem.conf*
 
 ## What's *problem.conf*
